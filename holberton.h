@@ -5,10 +5,15 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+/**
+ * struct type - structure for printing various types
+ * @id_type: type to print
+ * @function: function to print
+ */
 typedef struct type
 {
-        char *id_type;
-        int (*function)(va_list);
+	char *id_type;
+	int (*function)(va_list);
 } print_type;
 
 int _printf(const char *format, ...);
