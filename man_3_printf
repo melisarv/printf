@@ -30,6 +30,9 @@ The int argument is converted to an unsigned char, then the return character is 
 .TP
 .B s
 The const char * argument is a pointer to an array of character type (pointer to a string). The characters in the array do not include the final null byte.
+.TP
+.BR i, d
+These specifiers are for int arguments. They convert the variable to a decimal number, positive or negative.
 .SH EXAMPLE
 To print strings and characters:
 .sp
