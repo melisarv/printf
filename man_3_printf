@@ -32,7 +32,6 @@ The int argument is converted to an unsigned char, then the return character is 
 The const char * argument is a pointer to an array of character type (pointer to a string). The characters in the array do not include the final null byte.
 .SH EXAMPLE
 To print strings and characters:
-To print decimal numbers and integers:
 .sp
 .RS
 #include "holberton.h"
