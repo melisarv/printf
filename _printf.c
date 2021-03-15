@@ -13,6 +13,8 @@ int (*get_functions(const char *format))(va_list)
 	print_type print[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"d", print_number},
+		{"i", print_number},
 		{NULL, NULL}
 	};
 
