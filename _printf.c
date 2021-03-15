@@ -17,8 +17,12 @@ int (*get_functions(const char *format))(va_list)
 		{NULL, NULL}
 	};
 
-	while (print[i].id_type != NULL && *(print[i].id_type) != *format)
+	while (print[i].id_type != NULL)
 	{
+		if (*(print[i].id_type) == *format)
+		{
+			break;
+		}
 		i++;
 	}
 	return (print[i].function);
@@ -52,20 +56,20 @@ int _printf(const char *format, ...)
 			count++;
 			i++;
 		}
-
 		if (!format[i])
 			return (count);
-
 		function = get_functions(&format[i + 1]);
-
 		if (function != NULL)
 		{
 			count += function(args);
 			i += 2;
 			continue;
 		}
-
-		if (!format[i + 1] == '%')
+		if (!format[i + 1])
+			return (-1);
+		_putchar(format[i]);
+		count++;
+		if (format[i + 1] == '%')
 			i += 2;
 		else
 			i++;
