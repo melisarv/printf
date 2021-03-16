@@ -8,11 +8,11 @@
 *Return: 1 on success.
 */
 
-int print_char(va_list c)
+int print_char(va_list args)
 {
 	char chtr;
 
-	chtr = (char)va_arg(c, int);
+	chtr = (char)va_arg(args, int);
 
 	_putchar(chtr);
 
@@ -27,12 +27,12 @@ int print_char(va_list c)
 *Return: number of chars printed.
 */
 
-int print_string(va_list s)
+int print_string(va_list args)
 {
 	int i;
 	char *str;
 
-	str = va_arg(s, char *);
+	str = va_arg(args, char *);
 
 	if (str == NULL)
 		str = "(null)";
@@ -52,41 +52,44 @@ int print_string(va_list s)
 *Return: result
 */
 
-int print_number(va_list i)
+int print_number(va_list args)
 {
-	int cont = 0, div, n, num;
+    int cont = 0, div, n, num;
 
-	n = va_arg(i, int);
+    n = va_arg(args, int);
 
 	if (n == 0)
 		_putchar('0');
 	else
 	{
 		if (n < 0)
-		{
-			n = n * -1;
+        {
 			_putchar('-');
-		}
-		num = n;
-		while (num != 0)
-		{
-			num = num / 10;
-			cont++;
-		}
-		num = 1;
-		div = 1;
-		while (num < cont)
-		{
-			div = div * 10;
-			num++;
-		}
-		num = 1;
-		while (num <= cont)
-		{
-			_putchar((n / div) % 10 + '0');
-			div = div / 10;
-			num++;
-		}
-	}
-	return (0);
+            n *= -1;
+        }
+
+	    num = n;
+	    while (num != 0)
+	    {
+		    num /= 10;
+		    cont++;
+	    }
+
+	    num = 1;
+	    div = 1;
+	    while (num < cont)
+	    {
+		    div *= 10;
+		    num++;
+	    }
+
+	    num = 1;
+	    while (num <= cont)
+	    {
+		    _putchar((n / div) % 10 + '0');
+		    div = div / 10;
+		    num++;
+	    }
+    }
+    return (cont);
 }
