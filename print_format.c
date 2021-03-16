@@ -52,13 +52,13 @@ int print_string(va_list args)
 
 int print_number(va_list args)
 {
-	int cont = 0, div, n, num;
+	int count1 = 0, count2 = 0, div, n, num;
 
 	n = va_arg(args, int);
 	if (n == 0)
 	{
 		_putchar('0');
-		cont++;
+		count1++;
 	}
 	else
 	{
@@ -66,28 +66,28 @@ int print_number(va_list args)
 		{
 			_putchar('-');
 			n *= -1;
-			cont++;
+			count2++;
 		}
 		num = n;
 		while (num != 0)
 		{
 			num /= 10;
-			cont++;
+			count1++;
 		}
 		num = 1;
 		div = 1;
-		while (num < cont)
+		while (num < count1)
 		{
 			div *= 10;
 			num++;
 		}
 		num = 1;
-		while (num <= cont)
+		while (num <= count1)
 		{
 			_putchar((n / div) % 10 + '0');
-			div = div / 10;
+			div /= 10;
 			num++;
 		}
 	}
-	return (cont);
+	return (count1 + count2);
 }
