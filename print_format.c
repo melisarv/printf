@@ -78,9 +78,9 @@ int print_number(va_list args)
 		i++;
 	}
 
-	b = 0;
+	j = 0;
 
-	while (b <= a)
+	while (j <= i)
 	{
 		len += _putchar((res / num_10) + '0');
 		res %= num_10;
