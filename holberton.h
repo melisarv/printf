@@ -21,4 +21,5 @@ int _putchar(char c);
 int print_char(va_list c);
 int print_string(va_list s);
 int print_number(va_list i);
+int print_binary(va_list i);
 #endif /* _HOLBERTON_H_ */
