@@ -24,18 +24,18 @@ void binary(unsigned int n)
 */
 int print_binary(va_list i)
 {
-		unsigned int n, n1;
-		int value = 0, cont = 0;
+	unsigned int n, n1;
+	int cont = 0;
 
-		n = va_arg(i, unsigned int);
-		n1 = n;
-		while (n1 > 0)
-		{
-			n1 = n1 / 10;
-			cont++;
-		}
-		value = (sizeof(unsigned int) * cont);
-		binary(n);
+	n = va_arg(i, unsigned int);
+	n1 = n;
+	while (n1 > 1)
+	{
+		n1 = n1 / 2;
+		cont++;
+	}
 
-		return (value);
+	binary(n);
+
+	return (cont);
 }
